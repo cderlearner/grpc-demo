@@ -14,7 +14,7 @@ public class LjxClient {
 
     private void createChannel() {
         managedChannel = NettyChannelBuilder.forAddress("localhost", PORT).usePlaintext(true)
-                .intercept(new ClientLogInterceptor(), new DeadlineInterceptor())
+                .intercept(new ClientLogInterceptor(), new DeadlineInterceptor(), new DeadlineInterceptor2())
                 .build();
     }
 
