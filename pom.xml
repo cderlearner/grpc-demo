@@ -39,7 +39,8 @@
 		<module>grpc-demo-nameResolver</module>
 		<module>grpc-demo-proxy</module>
 		<module>grpc-demo-ljx-stream</module>
-	</modules>
+        <module>grpc-demo-ljx-proto</module>
+    </modules>
 
 	<build>
 		<plugins>

@@ -32,6 +32,7 @@
             <artifactId>grpc-netty</artifactId>
             <version>${grpc.version}</version>
         </dependency>
+
     </dependencies>
 
 </project>

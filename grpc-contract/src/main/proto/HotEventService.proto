@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+option java_package = "com.grpc.demo.proto.ljx";
+
+
+service HotEventService {
+    rpc queryHotEventCategory (SearchIndexRpcRequest) returns (SearchIndexRpcResponse);
+
+    rpc queryHotEventByCategory (HotEventRpcRequest) returns (SearchIndexRpcResponse);
+
+    rpc queryOP (HotEventRpcRequest) returns (SearchIndexRpcResponse);
+
+    rpc queryHotEventSummary (SearchIndexRpcRequest) returns (SearchIndexRpcResponse);
+
+    rpc queryHotEventStock (HotEventRpcRequest) returns (SearchIndexRpcResponse);
+
+    rpc queryNoticePush (HotEventUserRpcDto) returns (SearchIndexRpcResponse);
+
+}
+
+message SearchResponse {
+    string name = 1;
+    repeated Result results = 2;
+    map<int64, string> rtmap = 3;
+}
+
+message Result {
+    string url = 1;
+    string title = 2;
+    repeated string snippets = 3;
+}
+
+message SearchIndexRpcResponse {
+    int32 code = 1;
+    string message = 2;
+    string data = 3;
+    string meta = 4;
+}
+
+message SearchIndexRpcRequest {
+    int64 uid = 1;
+    string source = 2;
+}
+
+// The request message
+message HotEventRpcRequest {
+    int32 categoryId = 1;
+    int32 page = 2;
+    int32 count = 3;
+    string tag = 4;
+}
+
+// The response message
+message HotEventCategoryRpcDto {
+    int32 id = 1;
+    string name = 2;
+}
+
+message HotEventRpcDto {
+    int32 id = 1;
+    string tag = 2;
+    string content = 3;
+    string pic = 4;
+    string backgroundColor = 5;
+    bool following = 6;
+    int32 statusCount = 7;
+    int32 followerCount = 8;
+
+}
+
+// The response message
+message HotEventUserRpcDto {
+    int64 userId = 1;
+}
